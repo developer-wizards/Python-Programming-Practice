@@ -58,5 +58,28 @@ def bubbleSort(x):
 arr = [4,1,9,0,5,7,2,8]
 result = bubbleSort(arr)
 print(result)
+
+'''
+Optimized Implementation:
+The above function always runs O(n^2) time even if the array is sorted. It can be optimized by stopping the algorithm if inner loop didn’t cause any swap.
+'''
+def optimized_bubbleSort(x):
+
+    for i in range(len(x)):
+        swapped = False
+        for j in range(len(x) - i -1):
+
+            if(x[j]>x[j+1]):
+                x[j], x[j+1] = x[j+1], x[j]
+                swapped = True
+        if swapped==False:
+            return x
+
+
+#driver code
+arr = [4,1,9,0,5,7,2,8]
+result = optimized_bubbleSort(arr)
+print("result of optimize sort is ", result)
+
     
 
